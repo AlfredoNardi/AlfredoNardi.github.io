@@ -1,0 +1,229 @@
+@charset "utf-8";
+
+/* CSS Document */
+/* Reset CSS básico para garantir consistência entre navegadores */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 20px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Estilos para o cabeçalho */
+header h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* Estilos para os títulos de seções */
+section h2 {
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+/* Estilos para formulários */
+input[type="text"],
+select,
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+}
+
+/* Estilos para botões */
+button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.form-group {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+	flex-wrap: wrap; /* Permite que os itens passem para a linha seguinte se não couberem */
+    gap: 10px; /* Ajuste este valor conforme necessário para seu layout */
+    margin-bottom: 20px; /* Espaçamento entre grupos de campos para melhor visualização */
+}
+
+#campoOutros {
+    display: flex; /* Garante que o label e o input dentro de #campoOutros também estejam alinhados */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+}
+
+.align-center {
+    text-align: center; /* Se você deseja centralizar o texto dentro do input */
+}
+
+.form-group label {
+    white-space: nowrap;
+    flex-shrink: 0; /* Impede o encolhimento do label */
+}
+
+input[type="date"], input[type="time"] {
+    width: auto; /* Permite que os inputs cresçam com o conteúdo */
+    flex-grow: 1;
+}
+
+.checkbox-row label {
+    display: inline-block; /* Faz com que os checkboxes se alinhem na horizontal */
+    margin-right: 20px; /* Ajusta o espaço entre os checkboxes */
+}
+
+.checkbox-group > label {
+    margin-top: 10px; /* Espaço antes do checkbox "Outros" */
+}
+
+.checkbox-row label input[type="text"] {
+    vertical-align: middle;
+    margin-left: 5px; /* Espaço entre o checkbox "Outros" e a caixa de texto */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-group {
+        flex-direction: column;
+        align-items: stretch; /* Garante que os inputs ocupem a largura total */
+    }
+
+    .form-group label {
+        margin-bottom: 5px; /* Adiciona espaço abaixo do label quando em coluna */
+    }
+
+    input[type="text"],
+    select,
+    textarea,
+    button {
+        width: 100%;
+        margin-top: 5px;
+    }
+
+    .container {
+        padding: 0 10px;
+    }
+}
+
+.linha-unica {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: nowrap; /* Para garantir que tudo fique em uma linha, ajuste conforme necessário */
+}
+
+.normal-input, .inline-element input {
+    flex-grow: 1; /* Permite que os inputs cresçam para preencher o espaço disponível */
+    min-width: 0; /* Impede que o flexbox ignore os limites do container */
+}
+
+.inline-element {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+/* Ajustes adicionais para garantir que não ultrapassem a largura da linha */
+.normal-input {
+    width: auto; /* Adapta a largura automaticamente */
+    max-width: 180px; /* Ajuste conforme necessário */
+}
+
+
+@media print {
+  /* Esconde todos os elementos por padrão */
+  body * {
+    visibility: hidden;
+  }
+  /* Exibe apenas o container que você quer imprimir */
+  .container, .container * {
+    visibility: visible;
+  }
+  /* Opcional: ajustes adicionais para impressão */
+  .container {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+  /* Oculta elementos específicos que não devem ser impressos */
+  .nao-imprimir, .nao-imprimir * {
+    display: none;
+  }
+}
+
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.form-group.date-time {
+    display: flex;
+    align-items: center;
+}
+
+.form-group.date-time label,
+.form-group.date-time input {
+    margin: 5px;
+}
+
+.normal-input {
+    padding: 5px;
+    margin-left: 5px;
+}
+
+.align-center {
+    /* Estilos específicos para o input se necessário, 
+       por exemplo, se quiser centralizar o texto dentro do input: */
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.checkbox-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.checkbox {
+    margin-right: 20px;
+}
+
+.input-outros {
+    max-width: 200px;
+    display: none; /* Inicialmente oculto */
+}

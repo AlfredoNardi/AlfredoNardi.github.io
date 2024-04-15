@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> RECOGNIÇÃO VISUOGRÁFICA DE LOCAL DE CRIME</title>
+    <link rel="stylesheet" href="file:///C|/Users/alfre/OneDrive/Área de Trabalho/TexteRecoCrime/style.css">
+</head>
+<body>
+	
+    <form id="crimeSceneForm" action="submit_page.php" method="POST">
+        <div class="container">
+            <header>
+                <h1>RECOGNIÇÃO VISUOGRÁFICA DE LOCAL DE CRIME</h1>
+            </header>
+			
+       <section id="informacoes-preliminares">
+            <h2>1. INFORMAÇÕES PRELIMINARES</h2>
+            
+<fieldset class="form-group">
+    <legend><strong>Natureza do delito:</strong></legend>
+    <label for="naturezaDelitoSelect">Selecione:</label>
+    <select id="naturezaDelitoSelect" class="select-com-especificacao" data-especificacao-target="especificacao-naturezaDelito">
+	  <option value="">Selecione...</option>
+        <option value="Homicidio Doloso">Homicídio Doloso</option>
+        <option value="Homicidio em decorrencia de intervencao policial">Homicídio em decorrência de intervenção policial</option>
+        <option value="Morte suspeita">Morte suspeita</option>
+        <option value="Suicidio">Suicídio</option>
+        <option value="outros">Outro</option>
+    </select>
+	<label for="especificacao-naturezaDelito" class="visually-hidden">Especifique:</label>
+    <input type="text" id="especificacao-naturezaDelito" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+</fieldset>
+			
+<div class="form-group">
+    <div class="date-time">
+        <label for="data"><strong>Data:</strong></label>
+        <input type="date" id="data" class="normal-input">
+
+        <label for="hora"><strong>Hora:</strong></label>
+        <input type="time" id="hora" class="normal-input" required>
+    </div>
+
+    <div>
+        <label><strong>Local:</strong></label>
+        <input id="localFatos" type="text" class="large-input" required aria-label="Local dos fatos">
+    </div>
+    
+    <div>
+        <label><strong>Ponto de referência:</strong></label>
+        <input type="text" class="large-input" placeholder="Especifique" required aria-label="Ponto de referência">
+    </div>
+
+    <div>
+        <label for="tipo-local"><strong>Tipo de local:</strong></label>
+        <select id="tipo-local" class="normal-input" required>
+            <option value="">Selecione...</option>
+            <option value="Externo">Externo</option>
+            <option value="Interno">Interno</option>
+        </select>
+    </div>
+
+    <div>
+    <label for="circunscricao-policial"><strong>Circunscrição:</strong></label>
+    <select id="circunscricao-policial" class="normal-input">
+        <option value="">Selecione...</option>
+        <!-- As opções serão adicionadas pelo JavaScript -->
+    </select>
+</div>
+
+<div>
+    <label for="bo-dp-select"><strong>Boletim de Ocorrência lavrado no DP:</strong></label>
+    <select id="bo-dp-select" class="input-margin-bodp">
+        <!-- Opções serão adicionadas via JavaScript -->
+    </select>
+    <input type="text" name="bo-dp-info" class="normal-input" placeholder="Número do Boletim">
+</div>
+
+    <div>
+        <label><strong>Boletim de Ocorrência lavrado no DHPP:</strong></label>
+        <select name="bo-dhpp" class="normal-input" id="bo-dhpp-select">
+          <option value="">Selecione o DHPP</option>
+            <option value="Geacrim 1">Geacrim 1</option>
+            <option value="Geacrim 2">Geacrim 2</option>
+            <option value="Geacrim 3">Geacrim 3</option>
+            <option value="Geacrim 4">Geacrim 4</option>
+            <option value="Geacrim 5">Geacrim 5</option>
+      </select>
+    </div>  
+</div>
+
+			
+<div class="form-group">
+    <label><strong>Comunicação ao DP:</strong></label>
+    <input type="date"> 
+    <input type="time">
+</div>
+
+<div class="form-group">
+    <label><strong>Comunicação ao DHPP:</strong></label>
+    <input type="date"> 
+    <input type="time">
+</div>
+
+<div class="form-group">
+    <label><strong>Chegada da Polícia Militar no Local:</strong></label>
+    <input type="date"> 
+    <input type="time">
+</div>
+
+<div class="form-group">
+    <label><strong>Deslocamento da Equipe para o Local:</strong></label>
+    <input type="date"> 
+    <input type="time">
+</div>
+
+<div class="form-group">
+    <label><strong>Chegada da Equipe ao Local:</strong></label>
+    <input type="date"> 
+    <input type="time">
+</div>
+
+<div class="form-group">
+    <label><strong>Liberação do Local para Carro de Cadáver:</strong></label>
+    <input type="date"> 
+    <input type="time">
+</div>
+
+<div class="form-group">
+    <label><strong>Término dos Trabalhos da Equipe no Local</strong>:</label>
+    <input type="date"> 
+    <input type="time">
+</div>
+</section>
+		
+
+
+        <section id="componentes-equipe">
+            <h2>2. DOS COMPONENTES DA EQUIPE</h2>
+        
+<div class="form-group label-above">
+    <label for="delegado"><strong>Delegado(a):</strong></label>
+    <input type="text" id="delegado" class="large-input" placeholder="Autoridade">
+</div>
+
+<div class="form-group label-above">
+    <label for="escrivao"><strong>Escrivão(ã):</strong></label>
+    <input type="text" id="escrivao" class="large-input" placeholder="Escrivão">
+</div>
+
+
+<div class="form-group">
+    <label><strong>Policiais Civis:</strong></label>
+    <input type="text" class="large-input" placeholder="Policial 1">
+    <input type="text" class="large-input" placeholder="Policial 2">
+</div>
+
+
+<div class="form-group">
+    <label><strong>Papiloscopistas:</strong></label>
+    <input type="text" class="large-input" placeholder="Papipol 1">
+    <input type="text" class="large-input" placeholder="Papipol 2">
+</div>
+
+<div class="form-group">
+    <label><strong>Perito Criminal:</strong></label>
+    <input type="text" class="large-input" placeholder="Perito">
+</div>
+
+<div class="form-group">
+    <label><strong>Fotógrafo Técnico-Pericial:</strong></label>
+    <input type="text" class="large-input" placeholder="Fotógrafo">
+</div>
+			
+</section>
+
+        <section id="preservacao-local">
+            <h2>3. DA PRESERVAÇÃO DO LOCAL</h2>
+            
+<div class="form-group">
+    <div>
+        <label for="estadoVitima"><strong>Vítima:</strong></label>
+        <select id="estadoVitima" class="normal-input margin-left-vitima">
+            <option value="">Selecione...</option>
+            <option value="Coberta">Coberta</option>
+            <option value="Descoberta">Descoberta</option>
+        </select>
+    </div>
+
+    <div id="materialCobertura" style="display:none;">
+        <label for="materialQueCobria">Qual o material que a cobria?</label>
+        <input type="text" id="materialQueCobria" name="materialQueCobria" placeholder="Especifique o material">
+    </div>
+</div>
+
+<div class="form-group">
+    <!-- Local preservado por -->
+    <div>
+        <label for="preservadoPorSelect"><strong>Local preservado por:</strong></label>
+        <select id="preservadoPorSelect" class="select-com-especificacao" data-especificacao-target="especificacao-preservadoPor">
+            <option value="">Selecione...</option>
+            <option value="PC">Polícia Civil</option>
+            <option value="PM">Polícia Militar</option>
+            <option value="PF">Polícia Federal</option>
+            <option value="GCM">Guarda Civil Metropolitana</option>
+            <option value="BM">Bombeiro Militar</option>
+            <option value="outros">Outro</option>
+        </select>
+        <label for="especificacao-preservadoPor" class="visually-hidden">Especifique:</label>
+        <input type="text" id="especificacao-preservadoPor" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+    </div>
+
+    <!-- Veículo de Transporte e Responsável -->
+    <div>
+        <label for="vtrNumero"><strong>VTR n°:</strong></label>
+        <input type="text" id="vtrNumero"> 
+        <label for="responsavel"><strong>Responsável:</strong></label>
+        <input type="text" id="responsavel">
+    </div>
+
+    <!-- Tipo de documento -->
+    <div>
+        <label for="documentoSimplesSelect"><strong>Tipo de documento:</strong></label>
+        <select id="documentoSimplesSelect" class="select-com-especificacao" data-especificacao-target="especificacao-documentoSimples">
+            <option value="">Selecione...</option>
+            <option value="RE">RE</option>
+            <option value="RG">RG</option>
+            <option value="CRM">CRM</option>
+            <option value="CRE">CRE</option>
+            <option value="CNH">CNH</option>
+            <option value="CPF">CPF</option>
+            <option value="Passaporte">Passaporte</option>
+            <option value="outros">Outro</option>
+        </select>
+        <label for="especificacao-documentoSimples" class="visually-hidden">Especifique:</label>
+        <input type="text" id="especificacao-documentoSimples" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+    </div>
+
+    <!-- Número do documento -->
+    <div>
+        <label for="documentoNumero"><strong>Nº:</strong></label>
+        <input type="text" id="documentoNumero">
+    </div>
+</div>
+
+
+<div class="form-group">
+    <!-- Houve tentativa de resgate? -->
+    <div>
+        <label for="tentativaResgate"><strong>Houve tentativa de resgate?</strong></label>
+        <select id="tentativaResgate" class="normal-input">
+          <option value="">Selecione...</option>
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+      </select>
+    </div>
+
+    <!-- Tipo de Resgate -->
+    <div>
+        
+        <strong>
+        <label for="tipoResgate">Realizado por(pela):</label>
+        <select id="tipoResgate" class="select-com-especificacao" data-especificacao-target="especificacao-tipoResgate">
+          <option value="">Selecione...</option>
+          <option value="BM">Bombeiro</option>
+          <option value="UR">Resgate (UR)</option>
+          <option value="USA">Suporte Avançado (USA)</option>
+          <option value="PM">Polícia Militar</option>
+          <option value="PC">Polícia Civil</option>
+          <option value="outros">Outros</option>
+        </select>
+        <label for="especificacao-tipoResgate" class="visually-hidden">Especifique:</label>
+      <input type="text" id="especificacao-tipoResgate" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+    </strong></div>
+
+    <!-- VTR número -->
+    <div>
+        <label for="vtrNumero"><strong>VTR nº:</strong></label>
+        <input type="text" id="vtrResgate" name="vtrResgate" placeholder="Número VTR">
+    </div>
+
+    <!-- Outros detalhes de resgate -->
+    <div id="campoOutrosResgate" style="display:none;">
+        <label for="detalhesOutrosResgate">Especifique:</label>
+        <input type="text" id="detalhesOutrosResgate" name="detalhesOutrosResgate" placeholder="Detalhes">
+    </div>
+
+    <!-- Tipo de documento do resgate -->
+    <div>
+        <label for="documentoResgateSelect"><strong>Tipo de documento:</strong></label>
+        <select id="documentoResgateSelect" class="select-com-especificacao" data-especificacao-target="especificacao-documentoResgateSelect">
+            <option value="">Selecione...</option>
+            <option value="RE">RE</option>
+            <option value="RG">RG</option>
+            <option value="CRM">CRM</option>
+            <option value="CRE">CRE</option>
+            <option value="CNH">CNH</option>
+            <option value="CPF">CPF</option>
+            <option value="Passaporte">Passaporte</option>
+            <option value="outros">Outros</option>
+        </select>
+        <label for="especificacao-documentoResgateSelect" class="visually-hidden">Especifique:</label>
+        <input type="text" id="especificacao-documentoResgateSelect" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+    </div>
+
+    <!-- Número do documento -->
+    <div>
+        <label for="numeroDocumento"><strong>Nº:</strong></label>
+        <input type="text" id="numeroDocumento">
+    </div>
+
+    <!-- Encarregado -->
+    <div>
+        <label for="encarregado"><strong>Encarregado:</strong></label>
+        <input type="text" id="encarregado">
+    </div>
+</div>
+</section>
+
+
+        <section id="clima">
+            <h2>4. DO CLIMA</h2>
+			
+<div class="form-group">
+    <!-- Período e Condição de Luz -->
+    <div>
+        <label for="periodo"><strong>Período</strong>:</label>
+        <select id="periodo" class="normal-input">
+          <option value="">Selecione...</option>
+            <option value="Manhã">Manhã</option>
+            <option value="Tarde">Tarde</option>
+            <option value="Noite">Noite</option>
+            <option value="Madrugada">Madrugada</option>
+      </select>
+        <select id="luz" class="normal-input" style="display:none;">
+            <option value="">Condição...</option>
+            <option value="Clara">Clara</option>
+            <option value="Escura">Escura</option>
+        </select>
+    </div>
+
+    <!-- Clima -->
+    <div>
+        <label for="climaSelect"><strong>Clima</strong>:</label>
+        <select id="climaSelect" class="select-com-especificacao" data-especificacao-target="especificacao-climaSelect">
+          <option value="">Selecione...</option>
+            <option value="Ensolarado">Ensolarado</option>
+            <option value="Nublado">Nublado</option>
+            <option value="Chuvoso">Chuvoso</option>
+            <option value="Tempestuoso">Tempestuoso</option>
+            <option value="Ventoso">Ventoso</option>
+            <option value="Frio">Frio</option>
+            <option value="Quente">Quente</option>
+            <option value="Ameno">Ameno</option>
+            <option value="outros">Outro</option>
+      </select>
+        <input type="text" id="especificacao-climaSelect" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+    </div>
+
+    <!-- Visibilidade -->
+    <div>
+        <label for="visibilidade"><strong>Visibilidade:</strong></label>
+        <select id="visibilidade" class="normal-input">
+          <option value="">Selecione...</option>
+            <option value="Boa">Boa</option>
+            <option value="Moderada">Moderada</option>
+            <option value="Ruim">Ruim</option>
+            <option value="Péssima">Péssima</option>
+      </select>
+    </div>
+
+    <!-- Temperatura -->
+    <div>
+        <label for="temperatura"><strong>Temperatura:</strong></label>
+        <select id="temperatura" class="normal-input">
+            <option value="">Selecione...</option>
+            <!-- Opções preenchidas dinamicamente pelo JavaScript -->
+        </select>
+    </div>
+
+    <!-- Sensação Térmica -->
+    <div>
+        <label for="sensacaoTermica"><strong>Sensação Térmica:</strong></label>
+        <select id="sensacaoTermica" class="normal-input">
+          <option value="">Selecione...</option>
+            <!-- Opções preenchidas dinamicamente pelo JavaScript -->
+      </select>
+    </div>
+
+    <!-- Umidade Relativa do Ar -->
+    <div>
+        <label for="umidadeAr"><strong>Umidade relativa do ar:</strong></label>
+        <select id="umidadeAr" class="normal-input">
+          <option value="">Selecione...</option>
+            <!-- Opções preenchidas dinamicamente pelo JavaScript -->
+      </select>
+	</div>
+		  </div>
+</section>
+
+
+        <section id="local-fatos">
+            <h2>5. DO LOCAL DOS FATOS</h2>
+           
+<div class="form-group">
+  <label><strong>LOCAL MEDIATO:</strong></label>
+
+    <div>
+        <label for="area"><strong>Área:</strong></label>
+        <select id="area" class="normal-input">
+            <option value="">Selecione...</option>
+            <option value="Área Urbana">Área Urbana</option>
+            <option value="Área Rural">Área Rural</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="perfilSocial"><strong>Perfil social:</strong></label>
+        <select id="perfilSocial" class="normal-input">
+            <option value="">Selecione...</option>
+            <option value="baixíssimo">Baixíssimo</option>
+            <option value="baixo">Baixo</option>
+            <option value="médio-baixo">Médio-baixo</option>
+            <option value="médio">Médio</option>
+            <option value="médio-alto">Médio-alto</option>
+            <option value="alto">Alto</option>
+            <option value="altíssimo">Altíssimo</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="iluminacaoPublica"><strong>Iluminação pública:</strong></label>
+        <select id="iluminacaoPublica" class="normal-input">
+            <option value="">Selecione...</option>
+          <option value="presente">Presente</option>
+          <option value="ausente">Ausente</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="redeEsgoto"><strong>Rede de esgoto:</strong></label>
+        <select id="redeEsgoto" class="normal-input">
+          <option value="">Selecione...</option>
+          <option value="presente">Presente</option>
+          <option value="ausente">Ausente</option>
+      </select>
+    </div>
+
+    <div>
+        <label for="pavimentacao1"><strong>Pavimentação:</strong></label>
+        <select id="pavimentacao1" class="normal-input">
+            <option value="">Selecione...</option>
+          <option value="presente">Presente</option>
+          <option value="ausente">Ausente</option>
+        </select>
+    </div>
+
+    <div>
+        <label><strong>Estabelecimentos próximos:</strong></label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="estabelecimentosProximos" value="Escola(s)"> Escola(s)</label>
+            <label><input type="checkbox" name="estabelecimentosProximos" value="Bar(es)"> Bar(es) ou Adega(s)</label>
+            <label><input type="checkbox" name="estabelecimentosProximos" value="Casa(s) de Massagem e/ou Lupanar(es)"> Prostíbulos</label>
+            <label><input type="checkbox" name="estabelecimentosProximos" value="Igreja(s)"> Religioso(s)</label>
+            <label><input type="checkbox" class="select-com-especificacao" data-especificacao-target="outrosEstabelecimentosEspecificacao" value="outros"> Outros</label>
+            <input type="text" id="outrosEstabelecimentosEspecificacao" class="normal-input" style="display: none;" placeholder="Especifique">
+      </div>
+    </div>
+
+    <div>
+        <label for="trafegoVeiculos"><strong>Tráfego de veículos:</strong></label>
+        <select id="trafegoVeiculos" class="normal-input">
+            <option value="">Selecione...</option>
+            <option value="Congestionado">Congestionado</option>
+            <option value="Intenso">Intenso</option>
+            <option value="Regular">Regular</option>
+            <option value="Reduzido">Reduzido</option>
+            <option value="Inexistente">Inexistente</option>
+        </select>
+    </div>
+
+    <div>
+        <label><strong>Presentes:</strong></label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" id="curiosos" name="presentes" value="Curiosos"> Curiosos</label>
+            <label><input type="checkbox" id="parentes" name="presentes" value="Parentes"> Parentes</label>
+            <label><input type="checkbox" id="vizinhos" name="presentes" value="Vizinho(s)"> Vizinho(s)</label>
+            <label><input type="checkbox" id="imprensa" name="presentes" value="Imprensa"> Imprensa</label>
+            <label><input type="checkbox" class="select-com-especificacao" id="outrosPresentes" name="presentes" data-especificacao-target="textoOutrosPresentes" value="outros"> Outros</label>
+            <input type="text" id="textoOutrosPresentes"  class="normal-input" style="display: none;" placeholder="Especifique">
+      </div>
+    </div>
+
+    <div>
+        <label for="informacoesPertinentes"><strong>Informações pertinentes:</strong></label>
+        <input type="text" id="informacoesPertinentes" class="normal-input">
+    </div>
+</div>
+
+			
+<div class="form-group">
+    <label><strong>LOCAL IMEDIATO EXTERNO:</strong></label>
+	<div>
+    <label for="localEncontroCorpo"><strong>Local de encontro do corpo:</strong></label>
+    <select id="localEncontroCorpo" class="select-com-especificacao normal-input" data-especificacao-target="especificacao-localEncontroCorpo">
+        <option value="">Selecione...</option>
+        <option value="Guia">Guia</option>
+        <option value="Sarjeta">Sarjeta</option>
+        <option value="Calçada">Calçada</option>
+        <option value="Esgoto">Esgoto</option>
+        <option value="outros">Outro</option>
+    </select>
+    <input type="text" id="especificacao-localEncontroCorpo" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+<br>
+    <label for="pavimentacao"><strong>Pavimentação:</strong></label>
+    <select id="pavimentacao" class="select-com-especificacao normal-input" data-especificacao-target="especificacao-pavimentacao">
+        <option value="">Selecione...</option>
+        <option value="Asfalto">Asfalto</option>
+        <option value="Concreto">Concreto</option>
+        <option value="Paralelepípedo">Paralelepípedo</option>
+        <option value="Terra">Terra</option>
+        <option value="outros">Outro tipo</option>
+    </select>
+    <input type="text" id="especificacao-pavimentacao" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+<br>
+		
+    <label for="tipoRelevo"><strong>Tipo de Relevo:</strong></label>
+    <select id="tipoRelevo" class="select-com-especificacao normal-input" data-especificacao-target="especificacao-tipoRelevo">
+        <option value="">Selecione...</option>
+        <option value="Plano">Plano</option>
+        <option value="Montanhoso">Montanhoso</option>
+        <option value="Acidentado">Acidentado</option>
+        <option value="Vale">Vale</option>
+        <option value="outros">Outro</option>
+    </select>
+    <input type="text" id="especificacao-tipoRelevo" class="campo-especificacao" style="display:none;" placeholder="Especifique">
+<br>
+		
+    <label><strong>Acidente(s) Geográfico(s):</strong></label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" name="acidentesGeograficos" value="rio"> Rio</label>
+        <label><input type="checkbox" name="acidentesGeograficos" value="lago"> Lago</label>
+        <label><input type="checkbox" name="acidentesGeograficos" value="monte"> Monte</label>
+        <label><input type="checkbox" name="acidentesGeograficos" value="represa"> Represa</label>
+        <label><input type="checkbox" name="acidentesGeograficos" value="corrego"> Córrego</label>
+        <label><input type="checkbox" class="select-com-especificacao" data-especificacao-target="outrosAcidentesGeograficos" value="outros"> Outros</label>
+        <input type="text" id="outrosAcidentesGeograficos" class="normal-input" style="display: none;" placeholder="Especifique">
+    </div>
+
+    <label for="corpoMovido"><strong>Evidências que o corpo foi movido de outro local para o atual?</strong></label>
+    <select id="corpoMovido" class="normal-input margin-left-vitima">
+        <option value="">Selecione...</option>
+        <option value="sim">Sim</option>
+        <option value="nao">Não</option>
+    </select>
+		<textarea id="detalhesCorpoMovido" name="detalhesCorpoMovido" class="large-input" placeholder="Descreva os detalhes" style="display:none;"></textarea>
+</div>
+
+</div>			
+<div class="form-group">
+    <label><strong>LOCAL IMEDIATO VEÍCULO:</strong></label>
+			<div>
+				
+    <label for="localCorpo"><strong>Local de encontro da vítima:</strong></label>
+    <select id="localCorpo" class="select-com-especificacao normal-input" data-especificacao-target="especificacao-local">
+      <option value="">Selecione...</option>
+        <option value="Banco do motorista">Banco do motorista</option>
+        <option value="Banco do passageiro">Banco do passageiro</option>
+        <option value="Banco traseiro">Banco traseiro</option>
+        <option value="Porta-malas">Porta-malas</option>
+        <option value="outros">Outro</option>
+    </select>
+    <input type="text" id="especificacao-local" class="campo-local" style="display:none;" placeholder="Especifique">
+			<div>
+				
+    <label for="tipoVeiculo"><strong>Tipo de Veículo:</strong></label>
+    <select id="tipoVeiculo">
+        <option value="">Selecione o tipo de veículo</option>
+        <option value="carros">Carros</option>
+        <option value="motos">Motos</option>
+        <option value="caminhoes">Caminhões</option>
+    </select>
+    <select id="marcasVeiculo">
+        <option>Selecione um tipo de veículo primeiro</option>
+    </select>
+    <select id="modelosVeiculo">
+        <option>Selecione uma marca primeiro</option>
+    </select>
+
+    <label for="placa"><strong>Placa:</strong></label>
+    <input type="text" id="placa" maxlength="7" placeholder="XXX-0000">
+    
+    <label for="corVeiculo"><strong>Cor:</strong></label>
+    <select id="corVeiculo">
+        <option value="">Selecione a cor...</option>
+        <option value="Branco">Branco</option>
+        <option value="Preto">Preto</option>
+        <option value="Prata">Prata</option>
+        <option value="Vermelho">Vermelho</option>
+        <option value="Azul">Azul</option>
+        <option value="outros">Outra</option>
+    </select>
+    <input type="text" id="outraCor" style="display:none;" placeholder="Especifique a cor">
+
+    <label><strong>Proprietário:</strong></label>
+    <input type="text" id="proprietario">
+    <label><strong>CPF do Proprietário:</strong></label>
+    <input type="text" id="cpfProprietario" maxlength="14" placeholder="000.000.000-00">
+
+    <label for="motorLigado"><strong>Motor Ligado:</strong></label>
+    <select class="normal-input">
+        <option value="">Selecione...</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+    </select>
+    <br>
+    <label for="danosVeiculo"><strong>Danos ao veículo:</strong></label>
+    <select id="danosVeiculo" class="normal-input">
+        <option value="">Selecione...</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+    </select>
+	<textarea id="campoAdicionalDanos" name="campoAdicionalDanos" class="large-input" placeholder="Descreva os danos" style="display:none;"></textarea>
+</div>
+  </div></div>
+					
+<div class="form-group">
+    <label><strong>LOCAL IMEDIATO INTERNO:</strong></label>
+<div>
+    <label for="tipoAmbiente"><strong>Tipo de Ambiente:</strong></label>
+    <input type="text" id="tipoAmbiente">
+
+    <label for="tipoConstrucao"><strong>Tipo de Construção:</strong></label>
+    <input type="text" id="tipoConstrucao">
+
+    <label for="uso"><strong>Uso:</strong></label>
+    <input type="text" id="uso">
+
+    <label for="condicaoHigiene"><strong>Condição de higiene:</strong></label>
+    <input type="text" id="condicaoHigiene">
+
+    <label for="materialCoberturaImovel"><strong>Material de Cobertura:</strong></label>
+    <input type="text" id="materialCoberturaImovel">
+
+    <label for="tipoPiso"><strong>Tipo de Piso:</strong></label>
+    <input type="text" id="tipoPiso">
+
+    <label for="moveisUtensilios"><strong>Móveis e utensílios:</strong></label>
+    <select id="moveisUtensilios">
+        <option value="">Selecione...</option>
+        <option value="Nenhum">Nenhum</option>
+        <option value="Improvisados">Improvisados</option>
+        <option value="Modestos">Modestos</option>
+        <option value="Regulares">Regulares</option>
+        <option value="Sofisticados">Sofisticados</option>
+    </select>
+
+    <label><strong>Animais no local:</strong></label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" value="cachorro"> Cachorro</label>
+        <label><input type="checkbox" value="gato"> Gato</label>
+        <label><input type="checkbox" value="pássaro"> Pássaro</label>
+        <label><input type="checkbox" value="peixe"> Peixe</label>
+        <label><input type="checkbox" value="inseto"> Insetos</label>
+        <label><input type="checkbox" value="vermes"> Vermes</label>
+        <label><input type="checkbox" value="necrófagos"> Necrófagos</label>
+        <label><input type="checkbox" class="select-com-especificacao" data-especificacao-target="outrosAnimaisNoLocal" value="outros"> Outros</label>
+        <input type="text" id="outrosAnimaisNoLocal" class="normal-input" style="display: none;" placeholder="Especifique">
+  </div>
+
+    <label for="habitosAlimentares"><strong>Hábitos alimentares (Geladeira e Despensa):</strong></label>
+    <input type="text" id="habitosAlimentares">
+
+    <label for="materiaLeitura"><strong>Livros/Jornais/Revistas no local:</strong></label>
+    <input type="text" id="materiaLeitura">
+
+    <label for="objetosOutrosComodos"><strong>Objetos encontrados em outros cômodos:</strong></label>
+    <input type="text" id="objetosOutrosComodos">
+
+    <label for="comodoCorpo"><strong>Cômodo onde foi encontrado o corpo:</strong></label>
+    <input type="text" id="comodoCorpo">
+
+    <label for="objetosCenaCrime"><strong>Objetos observados na cena de crime:</strong></label>
+    <input type="text" id="objetosCenaCrime">
+
+    <label for="localDisparo"><strong>Vestígios de disparo de arma de fogo:</strong></label>
+    <input type="text" id="localDisparo">
+
+<label for="vestigiosSangue"><strong>Vestígios de sangue:</strong></label>
+<select id="vestigiosSangue" class="normal-input">
+    <option value="">Selecione...</option>
+    <option value="Sim">Sim</option>
+    <option value="Não">Não</option>
+</select>
+
+<textarea id="detalhesVestigiosSangue" name="detalhesVestigiosSangue" class="normal-input" style="display:none;" placeholder="Aonde?"></textarea>
+<br>
+	
+    <label for="vestigioBiologico"><strong>Vestígio de outro material biológico:</strong></label>
+    <select id="vestigioBiologico" class="normal-input" onchange="toggleVisibility('vestigioBiologico', 'detalhesBiologicos')">
+      <option value="">Selecione...</option>
+        <option value="Sim">Sim</option>
+        <option value="Não">Não</option>
+  </select>
+
+	<textarea id="detalhesBiologicos" name="detalhesBiologicos" class="normal-input" style="display:none;" placeholder="Aonde?"></textarea>
+ 
+<br>
+			
+    <label><strong>Indícios de medidas contraforenses:</strong></label>
+    <div class="checkbox-group">
+      <label><input type="checkbox" value="Inutilização do CCTV"> Inutilização do CCTV</label>
+        <label><input type="checkbox" value="Uso de luvas"> Uso de luvas</label>
+        <label><input type="checkbox" value="Limpeza da cena do crime"> Limpeza da cena do crime</label>
+        <label><input type="checkbox" value="Destruição de evidências"> Destruição de evidências</label>
+        <label><input type="checkbox" value="Disfarce ou alteração de características"> Disfarce ou alteração de características</label>
+        <label><input type="checkbox" class="select-com-especificacao" data-especificacao-target="especificacaoContraforenses" value="outros"> Outros</label>
+        <input type="text" id="especificacaoContraforenses" class="normal-input" style="display: none;" placeholder="Especifique">
+  </div>
+
+    <label><strong>Informações pertinentes:</strong></label>
+    <textarea class="large-input" placeholder="Observação"></textarea>
+	</div>	</div>
+	</section>	
+		
+<section id="identificacao-vitima">		
+
+<h2>6. IDENTIFICAÇÃO DA VÍTIMA</h2>		
+		
+<div class="form-group">
+    <section>
+        <label for="identificacaoVitima"><strong>A vítima foi:</strong></label>
+        <select id="identificacaoVitima" class="normal-input">
+            <option value="">Selecione...</option>
+            <option value="identificada">Identificada</option>
+            <option value="nao_identificada">Não identificada</option>
+        </select>
+        <textarea id="motivo" name="motivo" class="large-input" placeholder="Descreva o motivo" style="display:none;"></textarea>
+    <div>
+        <label for="nome"><strong>Nome:</strong></label>
+        <input type="text" id="nome">
+        <label for="nomeSocial"><strong>Nome Social:</strong></label>
+        <input type="text" id="nomeSocial">
+    
+		
+		<label for="sexo"><strong>Órgão Sexual:</strong></label>
+        <select id="sexo">
+            <option value="">Selecione...</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Ambos">Ambos</option>
+            <option value="NaoAparente">Não aparente ou identificado</option>
+        </select>
+        <label for="identificacaoGenero"><strong>Identificação de Gênero:</strong></label>
+        <input type="text" id="identificacaoGenero">
+    
+        <label for="vulgo"><strong>Também conhecido(a) como:</strong></label>
+        <input type="text" id="vulgo">
+    
+        <label for="cpf"><strong>CPF:</strong></label>
+        <input type="text" id="cpf">
+        <label for="rg"><strong>RG:</strong></label>
+        <input type="text" id="rg">
+	  </div>
+		
+		<label for="estadoCivil"><strong>Estado civil:</strong></label>
+        <select id="estadoCivil">
+            <option value="">Selecione...</option>
+            <option value="Solteiro(a)">Solteiro(a)</option>
+            <option value="Divorciado(a)">Divorciado(a)</option>
+            <option value="Desquitado(a)">Desquitado(a)</option>
+            <option value="União Estável">União Estável</option>
+            <option value="Casado(a)">Casado(a)</option>
+        </select>
+		
+    </section>
+
+    <section>
+        <label for="endereco"><strong>Endereço:</strong></label>
+        <input type="text" id="vitimaEndereco">
+    </section>
+
+    <section>
+		<label><strong>Genitores</strong></label>
+		<div>
+        <label for="pai"><strong>Pai:</strong></label>
+        <input type="text" id="pai">
+        <label for="mae"><strong>Mãe:</strong></label>
+        <input type="text" id="mae">
+		</div></section>
+
+    <section>
+        <label for="dataNascimento"><strong>Data de Nascimento:</strong></label>
+        <input type="date" id="dataNascimento">
+        <label for="idade"><strong>Idade:</strong></label>
+        <input type="number" id="idade">
+    </section>
+
+    <section>
+        <label for="estado"><strong>Natural de:</strong></label>
+        <select id="estado" onchange="carregarCidades(this.value)"></select>
+        <label for="cidade"><strong>Cidade:</strong></label>
+        <select id="cidade"></select>
+    </section>
+
+   <section>
+        <label for="profissao"><strong>Profissão:</strong></label>
+        <input type="text" id="profissao">
+		<label><strong>Ação da vítima no local:</strong></label>
+    <select id="acaoVitima" class="normal-input select-com-especificacao" data-especificacao-target="descricaoAcaoVitimaOutros">
+        <option value="">Selecione...</option>
+        <option value="Trabalhando">Trabalhando</option>
+        <option value="Visitando amigos ou família">Visitando amigos ou família</option>
+        <option value="Passando pelo local">Passando pelo local</option>
+        <option value="Praticando esporte">Praticando esporte</option>
+        <option value="Fazendo compras">Fazendo compras</option>
+        <option value="Turismo">Turismo</option>
+        <option value="Atividades ilícitas">Atividades ilícitas</option>
+        <option value="outros">Outros</option>
+    </select>
+    <input type="text" id="descricaoAcaoVitimaOutros" class="normal-input" style="display: none;">
+    </section>
+</div>
+
+<div class="form-group">
+    <label><strong>DESCRIÇÃO FÍSICA</strong></label>
+
+    <div>
+        <label for="etnia"><strong>Raça:</strong></label>
+        <select id="etnia" class="select-com-especificacao normal-input" data-especificacao-target="especificarEtnia">
+            <option value="">Selecione...</option>
+            <option value="Branca">Branca</option>
+            <option value="Preta">Preta</option>
+            <option value="Parda">Parda</option>
+            <option value="Amarela">Amarela</option>
+            <option value="Indígena">Indígena</option>
+            <option value="outros">Outra</option>
+        </select>
+        <input type="text" id="especificarEtnia" class="normal-input" placeholder="Qual?" style="display:none">
+    </div>
+
+    <div>
+        <label for="caracteristicasFisicas"><strong>Características físicas comumente associadas à raça:</strong></label>
+        <select id="caracteristicasFisicas" class="select-com-especificacao normal-input" data-especificacao-target="especificarCaracteristicasFisicas">
+          <option value="">Selecione...</option>
+            <option value="Branca">Branca</option>
+            <option value="Preta">Preta</option>
+            <option value="Parda">Parda</option>
+            <option value="Amarela">Amarela</option>
+            <option value="Indígena">Indígena</option>
+            <option value="outros">Outra</option>
+      </select>
+        <input type="text" id="especificarCaracteristicasFisicas" class="normal-input" placeholder="Qual?" style="display:none;">
+    </div>
+
+    <div>
+        <label for="compleicaoFisica"><strong>Compleição Física:</strong></label>
+        <select id="compleicaoFisica" class="select-com-especificacao normal-input" data-especificacao-target="especificarCompleicaoFisica">
+            <option value="">Selecione...</option>
+            <option value="Magro">Magro</option>
+            <option value="Esbelto/Athlético">Esbelto/Athlético</option>
+            <option value="Médio/Normolíneo">Médio/Normolíneo</option>
+            <option value="Robusto/Forte">Robusto/Forte</option>
+            <option value="Obeso">Obeso</option>
+            <option value="outros">Outra</option>
+        </select>
+        <input type="text" id="especificarCompleicaoFisica" class="normal-input" placeholder="Qual?" style="display:none;">
+    </div>
+
+    <div>
+        <label for="altura"><strong>Altura (em metros):</strong></label>
+        <input type="number" id="altura" name="altura" class="normal-input" min="0.0" max="2.50" step="0.01" placeholder="metros">
+    </div>	
+
+    <div>
+        <label for="tipoCabelo"><strong>Tipo de cabelo:</strong></label>
+        <select id="tipoCabelo" class="select-com-especificacao normal-input" data-especificacao-target="especificarTipoCabelo">
+            <option value="">Selecione...</option>
+            <option value="Liso">Liso</option>
+            <option value="Ondulado">Ondulado</option>
+            <option value="Cacheado">Cacheado</option>
+            <option value="Crespo">Crespo</option>
+            <option value="outros">Outro</option>
+        </select>
+        <input type="text" id="especificarTipoCabelo" class="normal-input" placeholder="Qual?" style="display:none;">
+    </div>
+
+    <div>
+        <label for="comprimentoCabelo"><strong>Comprimento do cabelo:</strong></label>
+        <select id="comprimentoCabelo" class="select-com-especificacao normal-input" data-especificacao-target="especificarComprimentoCabelo">
+            <option value="">Selecione...</option>
+            <option value="Curto">Curto</option>
+            <option value="Médio">Médio</option>
+            <option value="Longo">Longo</option>
+        <option value="outros">Outro</option>
+    	</select>
+    	<input type="text" id="especificarComprimentoCabelo" class="normal-input" placeholder="Qual?" style="display:none;">
+</div>
+
+    <label for="corCabelo"><strong>Cor do cabelo:</strong></label>
+    <select id="corCabelo" class="select-com-especificacao normal-input" data-especificacao-target="especificarCorCabelo">
+      <option value="">Selecione...</option>
+        <option value="Preto">Preto</option>
+        <option value="Castanho">Castanho</option>
+        <option value="Loiro">Loiro</option>
+        <option value="Ruivo">Ruivo</option>
+        <option value="Grisalho">Grisalho</option>
+        <option value="outros">Outro</option>
+    </select>
+    <input type="text" id="especificarCorCabelo" class="normal-input" placeholder="Qual?" style="display:none;">
+	<br>
+	
+    <label for="corOlhos"><strong>Cor dos olhos:</strong></label>
+    <select id="corOlhos" class="select-com-especificacao normal-input" data-especificacao-target="especificarCorOlhos">
+        <option value="">Selecione...</option>
+        <option value="Castanho">Castanho</option>
+        <option value="Azul">Azul</option>
+        <option value="Verde">Verde</option>
+        <option value="Preto">Preto</option>
+        <option value="outros">Outro</option>
+    </select>
+    <input type="text" id="especificarCorOlhos" class="normal-input" placeholder="Qual?" style="display:none;">
+	<div></div>
+	
+<label for="cabeloTingido"><strong>Cabelo tingido:</strong></label>
+    <select id="cabeloTingido" class="normal-input">
+      <option value="">Selecione...</option>
+        <option value="Sim">Sim</option>
+        <option value="Nao">Não</option>
+    </select>
+	<div></div>
+    <label for="corTintura"><strong>Cor da tintura:</strong></label>
+    <select id="corTintura" class="normal-input">
+      <option value="">Selecione...</option>
+        <option value="Preto">Preto</option>
+        <option value="Castanho">Castanho</option>
+        <option value="Loiro">Loiro</option>
+        <option value="Ruivo">Ruivo</option>
+        <option value="Fantasia">Fantasia (Azul, Rosa, Verde, etc.)</option>
+        <option value="outros">Outra</option>
+    </select>
+    <input type="text" id="especificarCorTintura" class="normal-input" placeholder="Qual?" style="display:none;">
+
+
+	<label><strong>Diferenciais</strong></label>
+<div class="checkbox-group">
+    <label><input type="checkbox" id="barba" name="features" value="Barba"> Barba</label>
+    <label><input type="checkbox" id="bigode" name="features" value="Bigode"> Bigode</label>
+    <label><input type="checkbox" id="oculos" name="features" value="Óculos"> Óculos</label>
+    <label><input type="checkbox" id="denticion" name="features" value="Dentição"> Dentição</label>
+ 
+    <label for="tipoDenticion" id="opcionesDenticionLabel" style="display:none;">Selecione o tipo de dentição:</label>
+    <select id="tipoDenticion" class="normal-input" style="display:none;">
+        <option value="">Selecione...</option>
+        <option value="Completa">Completa</option>
+        <option value="Incompleta">Incompleta</option>
+        <option value="Protese Total">Prótese Total</option>
+        <option value="Protese Parcial Removivel">Prótese Parcial Removível</option>
+    </select>
+</div>
+
+
+        <label for="sexo2"><strong>Orgão Sexual:</strong></label>
+        <select id="sexo2">
+            <option value="">Selecione...</option>
+            <option value="Masculino">Masculino</option>
+            <option value="Feminino">Feminino</option>
+            <option value="Ambos">Ambos</option>
+            <option value="Naoaparente">Não aparente ou identificado</option>
+        </select>
+  </div>
+			
+<div class="form-group">
+    <label><strong>PERFIL SOCIOLÓGICO DA VÍTIMA</strong></label>
+<br>
+    <label><strong>Vícios:</strong></label>
+    <div class="checkbox-group" style="flex-wrap: wrap;">
+      <label><input type="checkbox" name="vicios" value="Álcool"> Álcool</label>
+        <label><input type="checkbox" name="vicios" value="Tabaco"> Tabaco</label>
+        <label><input type="checkbox" name="vicios" value="outros" class="select-com-especificacao" data-especificacao-target="especificarDrogasIlicitas"> Drogas Ilícitas</label><input type="text" id="especificarDrogasIlicitas" class="normal-input" placeholder="Qual(is)?" style="display: none;">
+        <label><input type="checkbox" name="vicios" value="Pornografia"> Pornografia</label>
+        <label><input type="checkbox" name="vicios" value="Internet"> Internet</label>
+        <label><input type="checkbox" name="vicios" value="Jogos de Azar"> Jogos de Azar</label>
+         <label><input type="checkbox" id="outrosVicios" name="vicios" value="outros" class="select-com-especificacao" data-especificacao-target="descricaoOutrosVicios"> Outros</label>
+    </div>
+    
+    <input type="text" id="descricaoOutrosVicios" class="normal-input" placeholder="Descreva outros vícios" style="display:none;">
+
+    <textarea id="informacoesPertinentesVicios" class="large-input" placeholder="Detalhes sobre os vícios e o comportamento da vítima"></textarea>
+
+    <label><strong>Desvios de Conduta:</strong></label>
+    <div class="checkbox-group" style="flex-wrap: wrap;">
+      <label><input type="checkbox" name="desviosConduta" value="Agressividade"> Agressividade</label>
+        <label><input type="checkbox" name="desviosConduta" value="Compulsividade"> Compulsividade</label>
+        <label><input type="checkbox" name="desviosConduta" value="Isolamento Social"> Isolamento Social</label>
+        <label><input type="checkbox" name="desviosConduta" value="Impulsividade"> Impulsividade</label>
+        <label><input type="checkbox" name="desviosConduta" value="Desobediência Civil"> Desobediência Civil</label>
+        <label><input type="checkbox" name="desviosConduta" value="Vandalismo"> Vandalismo</label>
+         <label><input type="checkbox" id="outrosDesvios" name="desviosConduta" value="outros" class="select-com-especificacao" data-especificacao-target="descricaoOutrosDesvios"> Outros</label>
+    </div>
+    <input type="text" id="descricaoOutrosDesvios" class="normal-input" placeholder="Qual(is)?" style="display: none; margin-top: 5px;">
+    <textarea id="informacoesPertinentesDesvios" class="large-input" placeholder="Detalhes sobre os desvios de conduta"></textarea>
+
+    <label><strong>Relacionamento com a família:</strong></label>
+    <select id="relacionamentoFamilia" class="normal-input select-com-especificacao" data-especificacao-target="descricaoOutrosRelacionamento">
+        <option value="">Selecione...</option>
+        <option value="Harmonioso">Harmonioso</option>
+        <option value="Conflituoso">Conflituoso</option>
+        <option value="Distante">Distante</option>
+        <option value="Indiferente">Indiferente</option>
+        <option value="outros">Outros</option>
+    </select>
+    <input type="text" id="descricaoOutrosRelacionamento" class="normal-input" style="display: none;">
+	<br>
+	
+    <label><strong>A vítima residia com:</strong></label>
+    <select id="residenciaVitima" class="normal-input select-com-especificacao" data-especificacao-target="descricaoResidenciaVitimaOutros">
+        <option value="">Selecione...</option>
+        <option value="Família">Família</option>
+        <option value="Amigos">Amigos</option>
+        <option value="Parceiro(a)">Parceiro(a)</option>
+        <option value="Sozinho(a)">Sozinho(a)</option>
+        <option value="Colegas de quarto">Colegas de quarto</option>
+        <option value="outros">Outros</option>
+    </select>
+    <input type="text" id="descricaoResidenciaVitimaOutros" class="normal-input" style="display: none;">
+<div>
+
+		
+<label><strong>TATUAGENS E/OU DEFORMIDADES</strong></label>
+        <div id="containerTatuagensDeformidades">
+            <!-- Linhas de tatuagens/deformidades serão adicionadas aqui -->
+        </div>
+        <button type="button" id="addTatuagens">Adicionar</button>
+    <div>
+
+    <label><strong>VESTIMENTAS</strong></label>
+        <div id="containerVestimentas">
+            <!-- Linhas de vestimentas serão adicionadas aqui -->
+        </div>
+        <button type="button" id="addVestimentas">Adicionar</button>
+    <div>
+
+    <label><strong>ADEREÇOS</strong></label>
+        <div id="containerAderecos">
+            <!-- Linhas de adereços serão adicionadas aqui -->
+        </div>
+        <button type="button" id="addAderecos">Adicionar</button>
+   <div>
+		
+	</div></div></div></div></div>
+</section>
+		
+		<section id="situacao-cadaver">	
+ <h2>7. POSIÇÃO E SITUAÇÃO DO CADÁVER</h2>		   	
+		
+<div class="form-group">
+    <label for="posicaoCorpo"><strong>Posição do corpo:</strong></label>
+    <select id="posicaoCorpo" class="normal-input">
+        <option value="">Selecione...</option>
+        <option value="DecubitoDorsal">Decúbito dorsal</option>
+        <option value="DecubitoVentral">Decúbito ventral</option>
+        <option value="DecubitoLateralDireito">Decúbito lateral direito</option>
+        <option value="DecubitoLateralEsquerdo">Decúbito lateral esquerdo</option>
+        <option value="SuspensaoCompleta">Suspensão completa</option>
+        <option value="SuspensaoIncompleta">Suspensão incompleta</option>
+        <option value="Sentado">Sentado</option>
+        <option value="Genupeitoral">Genupeitoral</option>
+        <option value="Submerso">Submerso (completa ou incompleta)</option>
+        <option value="PosicaoDeBoxeador">Posição de boxeador</option>
+        <option value="outros">Outros</option>
+    </select>
+    <input type="text" id="especificarOutraPosicao" class="normal-input" placeholder="Especifique a posição" style="display:none;">
+<div>
+	
+	<label for="posicaoCorpo1"><strong>Estado da Posição do Corpo:</strong></label>
+    <select id="posicaoCorpo1" class="normal-input">
+        <option value="">Selecione...</option>
+        <option value="Natural">Natural ou Comum</option>
+        <option value="NaoNatural">Não natural ou incomum</option>
+    </select>
+    <input type="text" id="explicacaoPosicao" class="normal-input" placeholder="Explique a posição incomum ou não natural" style="display:none;">
+<div>
+		
+    <label><strong>Estado do Corpo:</strong></label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" name="estadoCorpo" value="Descoberto"> Descoberto</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Enterrado"> Enterrado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Na água"> Na água</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Inchado"> Inchado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Não inchado"> Não inchado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Em decomposição"> Em decomposição</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Semi-enterrado"> Semi-enterrado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Coberto"> Coberto</label>
+		<label><input type="checkbox" name="estadoCorpo" value="Mumificado"> Mumificado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="CarbonizadoParcial"> Carbonizado parcialmente</label>
+		<label><input type="checkbox" name="estadoCorpo" value="CarbonizadoTotal"> Carbonizado totalmente</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Esqueletizado"> Esqueletizado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Fragmentado"> Fragmentado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Congelado"> Congelado</label>
+        <label><input type="checkbox" name="estadoCorpo" value="Com sinais de violência"> Com sinais de violência</label>
+        <label><input type="checkbox" id="outrosEstadoCorpo" class="select-com-especificacao" data-especificacao-target="descricaoOutrosEstadoCorpo"> Outros</label>
+        <input type="text" id="descricaoOutrosEstadoCorpo" class="normal-input" placeholder="Especifique outros estados" style="display:none;">
+    <div>
+
+		<label><strong>Evidências de ação para dificultar a identificação da vítima:</strong></label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" name="acaoIdentificacao" value="Desfiguração"> Desfiguração</label>
+        <label><input type="checkbox" name="acaoIdentificacao" value="Amputação de Dedos"> Amputação de Dedos</label>
+        <label><input type="checkbox" name="acaoIdentificacao" value="Remoção de Dentes"> Remoção de Dentes</label>
+        <label><input type="checkbox" name="acaoIdentificacao" value="Queimaduras"> Queimaduras</label>
+        <label><input type="checkbox" name="acaoIdentificacao" value="Ácido"> Uso de Ácido</label>
+        <label><input type="checkbox" name="acaoIdentificacao" value="Corte de Cabelo"> Corte de Cabelo</label>
+        <label><input type="checkbox" name="acaoIdentificacao" value="Remoção de Roupas"> Remoção de Roupas</label>
+        <label><input type="checkbox" id="outrosAcaoIdentificacao" class="select-com-especificacao" data-especificacao-target="descricaoOutrosAcaoIdentificacao"> Outros</label>
+        <input type="text" id="descricaoOutrosAcaoIdentificacao" class="normal-input" placeholder="Descreva outras ações" style="display:none;">
+    <div>
+		
+		
+<label><strong>Vestígios de sinais de violência:</strong></label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" name="sinaisViolencia" value="Violência Sexual"> Violência Sexual</label>
+        <label><input type="checkbox" name="sinaisViolencia" value="Enforcamento"> Enforcamento</label>
+        <label><input type="checkbox" name="sinaisViolencia" value="Estrangulamento"> Estrangulamento</label>
+        <label><input type="checkbox" name="sinaisViolencia" value="Tortura"> Tortura</label>
+		 <label><input type="checkbox" name="sinaisViolencia" value="Arma de Fogo"> Arma de fogo</label>
+        <label><input type="checkbox" name="sinaisViolencia" value="Golpes"> Golpes</label>
+        <label><input type="checkbox" name="sinaisViolencia" value="Facadas"> Facadas</label>
+        <label><input type="checkbox" id="outrosSinaisViolencia" class="select-com-especificacao" data-especificacao-target="descricaoOutrosSinaisViolencia"> Outros</label>
+        <input type="text" id="descricaoOutrosSinaisViolencia" class="normal-input" placeholder="Descreva outros sinais" style="display:none;">
+		<div>
+		
+<label><strong>Condições de Restrição da Vítima:</strong></label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" name="condicoesRestricao" value="Imobilizada"> Estava imobilizada</label>
+        <label><input type="checkbox" name="condicoesRestricao" value="Amordacada"> Amordaçada</label>
+        <label><input type="checkbox" name="condicoesRestricao" value="OlhosVendados"> Olhos vendados</label>
+        <label><input type="checkbox" name="condicoesRestricao" value="Manietada"> Manietada</label>
+        <label><input type="checkbox" name="condicoesRestricao" value="PésAmarrados"> Pés amarrados</label>
+        <label><input type="checkbox" id="outrosRestricoes" class="select-com-especificacao" data-especificacao-target="descricaoOutrosRestricoes"> Outros</label>
+        <input type="text" id="descricaoOutrosRestricoes" class="normal-input" placeholder="Descreva outros" style="display:none;">
+    </div>
+    <label>Instrumento utilizado:</label>
+    <select id="tipoInstrumento" class="normal-input">
+        <option value="">Selecione...</option>
+        <option value="Corda">Corda</option>
+        <option value="FitaAdesiva">Fita adesiva</option>
+        <option value="Algemas">Algemas</option>
+        <option value="Correntes">Correntes</option>
+        <option value="Tiras de pano">Tiras de pano</option>
+        <option value="Outro">Outro</option>
+    </select>
+    <input type="text" id="especificarOutroInstrumento" class="normal-input" placeholder="Especifique se Outro" style="display:none;">
+</div>
+		
+<div style="display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between;">
+    <div style="flex: 1; min-width: 220px;">
+        <label><strong>Estado de rigidez:</strong></label>
+        <select name="rigidez" class="normal-input">
+            <option value="">Selecione...</option>
+            <option value="presente">Presente</option>
+            <option value="ausente">Ausente</option>
+        </select>
+    </div>
+
+    <div style="flex: 1; min-width: 220px;">
+        <label><strong>Hipotermia:</strong></label>
+        <select name="hipotermia" class="normal-input">
+            <option value="">Selecione...</option>
+            <option value="presente">Presente</option>
+            <option value="ausente">Ausente</option>
+        </select>
+    </div>
+
+    <div style="flex: 1; min-width: 220px;">
+        <label for="tempoMorte"><strong>Tempo provável da morte:</strong></label>
+        <input type="text" id="tempoMorte" name="tempoMorte" placeholder="ex: 3 a 5 horas" class="normal-input">
+    </div>
+</div>
+
+		</div>
+<label><strong>COLETA DE MATERIAL PARA PERÍCIA</strong></label>
+    <div class="checkbox-group">
+        <label><input type="checkbox" name="materialPericia" value="ImpressoesPapilares"> Impressões papilares</label>
+        <label><input type="checkbox" name="materialPericia" value="Sangue"> Sangue</label>
+        <label><input type="checkbox" name="materialPericia" value="Esperma"> Esperma</label>
+        <label><input type="checkbox" name="materialPericia" value="Cabelo"> Cabelo</label>
+        <label><input type="checkbox" name="materialPericia" value="Saliva"> Saliva</label>
+        <label><input type="checkbox" name="materialPericia" value="Tecidos"> Tecidos</label>
+        <label><input type="checkbox" name="materialPericia" value="Unhas"> Unhas</label>
+        <label><input type="checkbox" name="materialPericia" value="FluidoVaginal"> Fluido vaginal</label>
+        <label><input type="checkbox" name="materialPericia" value="FluidoRetal"> Fluido retal</label>
+        <label><input type="checkbox" name="materialPericia" value="Pele"> Pele</label>
+        <label><input type="checkbox" name="materialPericia" value="Outros" id="outrosMaterialPericia"> Outros</label>
+    </div>
+    <input type="text" id="descricaoOutrosMaterial" class="normal-input" placeholder="Descreva outros materiais" style="display:none;">
+</div>
+
+	<label><strong>SEDE E DESCRIÇÃO DAS LESÕES APARENTES</strong></label>
+    <div id="containerLesoes">
+        <!-- Linhas de lesões serão adicionadas aqui -->
+    </div>
+    <button type="button" id="addLesaoBtn">Adicionar Lesão</button>
+</div>
+	
+		
+		<label><strong>APREENSÕES</strong></label>
+    <div id="containerApreensoes">
+        <!-- Linhas de apreensões serão adicionadas aqui -->
+    </div>
+    <button type="button" id="adicionarApreensao">Adicionar Apreensão</button>
+</div>
+
+		<label><strong>ARRECADAÇÕES</strong></label>
+		<div id="containerArrecadacoes">
+        <!-- Linhas de arrecadações serão adicionadas aqui -->
+    </div>
+    <button type="button" id="adicionarArrecadacao">Adicionar Arrecadação</button>
+</div>
+		
+		<label><strong>TESTEMUNHAS</strong></label>
+    <div id="containerTestemunhas">
+        <!-- Linhas de testemunhas serão adicionadas aqui -->
+    </div>
+    <button type="button" id="adicionarTestemunha">Adicionar Testemunha</button>
+</div>
+		
+	<section id="investigacoesPreliminares">
+    <h2>8. DAS INVESTIGAÇÕES PRELIMINARES:</h2>
+    <textarea id="textoInvestigacoesPreliminares" class="large-input" placeholder="Escreva suas considerações sobre as investigações preliminares."></textarea>
+</section>
+
+<section id="consideracoesFinais">
+    <h2>9. CONSIDERAÇÕES FINAIS:</h2>
+    <textarea id="textoConsideracoesFinais" class="large-input" placeholder="Escreva as considerações finais."></textarea>
+</section>
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+  </div>
+		
+</div>
+</div>
+
+        <!-- Rodapé com informações adicionais, como botões de ação -->
+<div>
+<footer>
+                <button id="botaoImprimir" type="button" onclick="window.print();">Imprimir RECO</button>
+  </footer>
+</div>
+	</div>
+    </form>
+    <script src="file:///C|/Users/alfre/OneDrive/Área de Trabalho/TexteRecoCrime/script.js"></script>
+</body>
+</html>
